@@ -154,7 +154,7 @@ module.exports = (app, params = {}) => {
   }));
 
   // install identity x
-  if (idxInstall) identityX(app, idxConfig, { templates: idxRouteTemplates });
+  identityX(app, idxConfig, { templates: idxRouteTemplates, install: idxInstall });
 
   app.use(setOlyticsCookie({ brandKey }));
 

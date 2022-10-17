@@ -8,10 +8,13 @@ const middleware = require('./middleware');
  */
 module.exports = (app, config, {
   templates = {},
+  install = true,
 } = {}) => {
   app.use(middleware(config));
   app.use('/__idx', routes);
 
+  console.log('idx', { install });
+  if (!install) return;
   config.endpointTypes.forEach((type) => {
     const endpoint = config.getEndpointFor(type);
     const template = templates[type];

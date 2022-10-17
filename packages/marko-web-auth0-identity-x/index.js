@@ -37,7 +37,7 @@ module.exports = (app, params = {}) => {
   });
 
   // install identity x
-  if (idxInstall) identityX(app, idxConfig, { templates: idxRouteTemplates });
+  identityX(app, idxConfig, { templates: idxRouteTemplates, install: idxInstall });
 
   // Load A0+IdX middleware
   app.use(middleware);
