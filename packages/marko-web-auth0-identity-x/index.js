@@ -27,9 +27,6 @@ module.exports = (app, params = {}) => {
     idxRouteTemplates: Joi.object().required(),
   }), params);
 
-  // install identity x
-  if (idxInstall) identityX(app, idxConfig, { templates: idxRouteTemplates });
-
   // install auth0 middleware
   auth0(app, {
     baseURL,
@@ -38,6 +35,9 @@ module.exports = (app, params = {}) => {
     secret: clientSecret,
     afterCallback,
   });
+
+  // install identity x
+  if (idxInstall) identityX(app, idxConfig, { templates: idxRouteTemplates });
 
   // Load A0+IdX middleware
   app.use(middleware);

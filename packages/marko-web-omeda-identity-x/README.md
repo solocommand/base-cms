@@ -64,6 +64,7 @@ startServer({
     handler(app, {
       ...omedaConfig,
       idxConfig,
+      // idxInstall: true,
       idxRouteTemplates,
     })
   },
