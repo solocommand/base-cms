@@ -1,5 +1,7 @@
 # BaseCMS Marko Wrapper for IdentityX
 
+> ***Note:*** If using this package with multiple plugins, ensure that the IdentityX service is only installed by the last plugin! See the `idxInstall` property on the relevant plugin docs.
+
 ## Installation
 
 1. Include `@parameter1/base-cms-marko-web-identity-x` as a project/website dependency.
