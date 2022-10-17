@@ -27,6 +27,7 @@ module.exports = (app, params = {}) => {
     idxConfig,
     idxOmedaRapidIdentifyProp,
     idxRouteTemplates,
+    idxInstall,
     inputId,
     omedaGraphQLClientProp,
     omedaPromoCodeCookieName,
@@ -93,6 +94,7 @@ module.exports = (app, params = {}) => {
     idxConfig: props.idxConfig.required(),
     idxOmedaRapidIdentifyProp: Joi.string().default('$idxOmedaRapidIdentify'),
     idxRouteTemplates: Joi.object().required(),
+    idxInstall: Joi.boolean().default(true),
     inputId: Joi.string().required(),
     omedaGraphQLClientProp: Joi.string().default('$omedaGraphQLClient'),
     omedaPromoCodeCookieName: Joi.string().default('omeda_promo_code'),
@@ -152,7 +154,7 @@ module.exports = (app, params = {}) => {
   }));
 
   // install identity x
-  identityX(app, idxConfig, { templates: idxRouteTemplates });
+  if (idxInstall) identityX(app, idxConfig, { templates: idxRouteTemplates });
 
   app.use(setOlyticsCookie({ brandKey }));
 

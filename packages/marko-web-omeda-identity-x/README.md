@@ -1,6 +1,8 @@
 # BaseCMS Marko Omeda+IdentityX Integrations
 Omeda+IdentityX components for BaseCMS/Marko websites.
 
+> ***Note:*** If using this package with another IdentityX plugin, ensure that the IdentityX service is installed by the last plugin! See the `idxInstall` property below.
+
 Based on the identity provider(s) in use, install and configure ***only one*** of these packages. *The other packages can be installed separately if needed, but this package should be the only one configured.*
 
 1. [omeda-identity-x](../marko-web-omeda-identity-x): For sites with both Omeda and IdentityX.
@@ -20,6 +22,7 @@ All configuration data must be passed to the middleware when loaded (See [Middle
 | `inputId` | **Yes** | The Omeda application API write token
 | `rapidIdentProductId` | **Yes** | The Omeda identifier for a Website product (ProductType=7).
 | `idxConfig` | **Yes** | An instance of the IdentityX configuration class (see [marko-web-identity-x#1](../marko-web-identity-x/config.js)) | _n/a_
+| `idxInstall` | No | If the IdentityX middleware should be automatically configured
 | `idxRouteTemplates` | **Yes** | An object containing the Marko templates to use for each IdentityX endpoint. (see [marko-web-identity-x#2](../marko-web-identity-x/index.js))
 | `omedaPromoCodeCookieName` | No | The name of the cookie to look for a persisted/original promo code. | `omeda_promo_code` |
 | `omedaPromoCodeDefault` | No | The default promo code to send with all Omeda requests. Falls back to input ID default configured by Omeda. |
