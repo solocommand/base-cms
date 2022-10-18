@@ -15,7 +15,7 @@ module.exports = (app, params = {}) => {
     clientSecret,
     // IdentityX Config
     idxConfig,
-    idxInstall,
+    enableIdxRoutes,
     idxRouteTemplates,
   } = validate(Joi.object({
     baseURL: Joi.string().required().description('The application\'s currently available URL.'),
@@ -23,12 +23,12 @@ module.exports = (app, params = {}) => {
     clientSecret: Joi.string().required().description('The application\'s Auth0 Client Secert'),
     issuerBaseURL: Joi.string().required().description('The Auth0 tenant URL'),
     idxConfig: Joi.object().required().instance(IdXConfig),
-    idxInstall: Joi.boolean().default(true),
+    enableIdxRoutes: Joi.boolean().default(true),
     idxRouteTemplates: Joi.object().required(),
   }), params);
 
   // install identity x
-  identityX(app, idxConfig, { templates: idxRouteTemplates, install: idxInstall });
+  identityX(app, idxConfig, { templates: idxRouteTemplates, enableIdxRoutes });
 
   // install auth0 middleware
   auth0(app, {

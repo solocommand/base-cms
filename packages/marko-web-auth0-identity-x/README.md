@@ -1,7 +1,7 @@
 # BaseCMS Marko Auth0+IdentityX Integrations
 Auth0+IdentityX components for BaseCMS/Marko websites.
 
-> ***Note:*** If using this package with another IdentityX plugin, ensure that the IdentityX service is installed by the last plugin! See the `idxInstall` property below.
+> ***Note:*** If using this package with another IdentityX plugin, ensure that the IdentityX routes are enabled only by the *last* plugin! See the `enableIdxRoutes` property below.
 
 Additional information can be found in the [Auth0](https://auth0.com/docs) and [IdentityX](https://docs.parameter1.com/identity-x) API documentation.
 
@@ -15,7 +15,7 @@ All configuration data must be passed to the middleware when loaded (See [Middle
 | `clientSecret` | **Yes** | The Auth0 Client Secret
 | `issuerBaseURL` | **Yes** | The Auth0 instance URL (such as `https://parameter1.us.auth0.com`)
 | `idxConfig` | **Yes** | An instance of the IdentityX configuration class (see [marko-web-identity-x#1](../marko-web-identity-x/config.js)) | _n/a_
-| `idxInstall` | No | If the IdentityX middleware should be automatically configured | `true`
+| `enableIdxRoutes` | No | If the IdentityX routes should be automatically configured | `true`
 | `idxRouteTemplates` | **Yes** | An object containing the Marko templates to use for each IdentityX endpoint. (see [marko-web-identity-x#2](../marko-web-identity-x/index.js))
 
 ## Usage
@@ -39,7 +39,7 @@ startServer({
     handler(app, {
       ...auth0Config,
       idxConfig,
-      // idxInstall: true,
+      // enableIdxRoutes: true,
       idxRouteTemplates,
     })
   },

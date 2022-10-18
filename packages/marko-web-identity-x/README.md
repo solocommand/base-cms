@@ -1,6 +1,6 @@
 # BaseCMS Marko Wrapper for IdentityX
 
-> ***Note:*** If using this package with multiple plugins, ensure that the IdentityX service is only installed by the last plugin! See the `idxInstall` property on the relevant plugin docs.
+> ***Note:*** If using this package with multiple plugins, ensure that the IdentityX routes are enabled only by the *last* plugin! See the `enableIdxRoutes` property on the relevant plugin docs.
 
 ## Installation
 
